@@ -1,0 +1,31 @@
+html {
+    box-sizing: border-box;
+}
+*, *:before, *:after {
+    box-sizing: inherit
+}
+
+
+body {
+    margin: 0px;
+    padding: 0px;
+}
+
+#viewer {
+    margin: 0px;
+    padding: 0px;
+}
+
+#menu {
+    opacity:90%;
+    background: white;  
+    position: absolute;
+    top: 100px;
+    width: 300px;
+    left: 0px;
+}
+
+#menu div {
+    padding-bottom: 10px;
+    padding-left: 10px;
+}

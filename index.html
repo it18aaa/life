@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/css/life.css">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="./src/game.js"></script>
+    <title>Cellular Automata</title>
+</head>
+
+<div id="header">
+    <h2>Conway's Game of Life
+        and "Life-like" cellular automata</h2>
+    <p>S/B rules indicate the number of neighbours required for a live cell to survive (S), and for a live cell to be
+        born (B)</p>
+</div>
+
+<div id="menu">
+    <div>
+        <input type="button" id="start" value="start">
+        <input type="button" id="stop" value="stop">
+        <input type="button" id="clear" value="clear">        
+    </div>
+    <div>
+        Randomly populate cells:
+        <label for="weighting">%</label>
+        <input type="range" min="0" max="1" value="0.4" step="0.01" class="slider" id="weighting"></input><span
+            id="weightingLabel"></span><br />
+            <input type="button" id="random" value="Populate">
+    </div>
+    <div>
+        <p>Look and Feel:</p>
+        <label for="celltype">Cell shape</label>
+        <select name="celltype" id="celltype">
+            <option value="square">Square</option>
+            <option value="circle">Circle</option>
+        </select>
+    </div>
+    <div>
+        <label for="colours">Colours:</label>
+        <input type="checkbox" id="colours" checked />
+    </div>
+
+    <div>
+        <label for="gridlines">Gridlines:</label>
+        <input type="checkbox" id="gridlines" checked />
+    </div>
+
+    <div>
+        <label for="updateInterval">Update Speed</label>
+        <input type="range" min="10" max="1000" value="250" class="slider" id="updateInterval"></input><span
+            id="intervalLabel"></span>&nbsp;ms
+    </div>
+    <div>
+        <label for="width">Width</label>
+        <input type="number" min="10" max="600" value="90" step="1" id="width" />
+    </div>
+    <div>
+        <label for="height">Height</label>
+        <input type="number" min="5" max="400" value="45" id="height" />
+    </div>
+
+    <div>
+        <label for="ruleset">Rule-set</label>
+        <select name="ruleset" id="ruleset">
+            <option value="custom">User rules</option>
+            <option value="23/3" selected>Conway's Game of Life - 23/3</option>
+            <option value="125/36">2x2 (125/36)</option>
+            <option value="34/34">34 Life (34/34)</option>
+            <option value="1358/357">Amoeba (1358/357)</option>
+            <option value="4567/345">Assilmilation (4567/345)</option>
+            <option value="235678/378">Coagulations (235678/378)</option>
+            <option value="45678/3">Coral (45678/3)</option>
+            <option value="34678/3678">Day and Night (34678/3678)</option>
+            <option value="5678/35678">Diamoeba (5678/35678)</option>
+            <option value="012345678/3">Flakes (012345678/3)</option>
+            <option value="1/1">Gnarl (1/1)</option>
+            <option value="23/36">HighLife (23/36)</option>
+            <option value="34678/0123478">Inverse Life (34678/0123478)</option>
+            <option value="5/345">Long Life (5/345)</option>
+            <option value="12345/3">Maze (12345/3)</option>
+            <option value="1234/3">Mazectric</option>
+            <option value="245/368">Move (245/368)</option>
+            <option value="238/357">Psuedo life (238/357)</option>
+            <option value="1357/1357">Replicator (1357/1357)</option>
+            <option value="/2">Seeds - (/2)</option>
+            <option value="/234">Serviettes - /234</option>
+            <option value="235678/3678">Stains 235678/3678</option>
+            <option value="2345/45678">Walled Cities 2345/45678</option>
+            <option value="4/25">4/25</option>
+            <option value="012345678/3">Life without Death 012345678/3</option>
+            <option value="245/368">Morley 245/368</option>
+            <option value="35678/4678">Anneal 35678/4678</option>
+        </select>
+    </div>
+
+    <div>
+        <label for="userRules">S/B</label>
+        <input type="text" id="userRules" />
+    </div>
+    <div>
+        Generation: <span id="generation"></span>
+    </div>
+</div>
+<div id="viewer">
+    <canvas id="output" width="1800" height="800"></canvas>
+</div>
+
+<script type="text/javascript">
+    $(gameOfLife);
+</script>
+</body>
+
+</html>
